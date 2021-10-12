@@ -30,11 +30,11 @@ class BaseArrayHelper
      * @@Date: 2021/10/10
      * @@Modify:yangWanZhang
      */
-    public function formatResponse(&$arr)
+    public static function formatResponse(&$arr)
     {
         foreach ($arr as $key => $value) {
             if (is_array($value)) {
-                $this->formatResponse($arr[$key]);
+                self::formatResponse($arr[$key]);
             } else if(is_numeric($value)&&!is_string($value)){
                 $arr[$key] =(string)$value;
             }
